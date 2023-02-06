@@ -1,0 +1,14 @@
+{
+  "name": "sub-modules",
+  "version": "1.0.0",
+  "description": "sub- module support nodejs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "redis": "^4.6.4"
+  }
+}
