@@ -1,7 +1,12 @@
 interface IConfig {
-    port: string
-    jwtSecretKey: string
     postgres: IConfigPostgres
+    common: IConfigCommon
+    redis: IConfigRedis
+}
+
+interface IConfigCommon {
+    port: number
+    jwtSecretKey: string
 }
 
 interface IConfigPostgres {
@@ -12,7 +17,16 @@ interface IConfigPostgres {
     url: string
 }
 
+interface IConfigRedis {
+    uri: string
+    port: number
+    username: string
+    password: string
+}
+
 export {
     IConfig,
-    IConfigPostgres
+    IConfigPostgres,
+    IConfigCommon,
+    IConfigRedis
 }

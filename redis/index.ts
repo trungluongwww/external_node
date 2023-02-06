@@ -9,10 +9,9 @@ let redis: RedisClientType
 
 const init = async (cfg: IConfig) => {
     redis = await createClient({
-        url: cfg.postgres.name,
-        username: cfg.postgres.username,
-        password: cfg.postgres.password,
-        database: cfg.postgres.port,
+        url: cfg.redis.uri,
+        username: cfg.redis.username,
+        password: cfg.redis.password,
     })
 
     redis.on('error', (err) => {
@@ -22,9 +21,9 @@ const init = async (cfg: IConfig) => {
     try {
         await redis.connect()
 
-        console.log(`[redis] connected to ${cfg.postgres.url}`)
+        console.log(`[redis] connected to ${cfg.redis.uri}`)
     } catch (err: unknown) {
-        console.log(`Error when connect to postgres:${cfg.postgres.url}`)
+        console.log(`Error when connect .redis:${cfg.redis.uri}`)
         process.exit(1)
     }
 }
