@@ -2,6 +2,7 @@ import r200 from "./r200";
 import r400 from "./r400";
 import r401 from "./r401";
 import r404 from "./r404";
+import r403 from "./r403";
 import { IResponseCode } from "../../interfaces/response";
 import Array from "../strings/array";
 import common from "./code";
@@ -32,4 +33,5 @@ export default {
   r400,
   r401,
   r404,
+  r403,
 };
