@@ -9,6 +9,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.1.0",
+    "bson": "^5.2.0",
     "redis": "^4.6.4"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.0"
   }
 }
