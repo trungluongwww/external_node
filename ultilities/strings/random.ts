@@ -9,10 +9,10 @@ function makeid(length: number) {
   return result;
 }
 
-const randomeCode = () => {
-  return Date.now().toString()
+const randomCode = () => {
+  return Date.now().toString() + makeid(4);
 };
 
 export default {
-  randomeCode,
+  randomCode,
 };
