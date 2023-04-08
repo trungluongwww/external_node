@@ -5,7 +5,7 @@ const lowercaseAndRemoveDiacritics = (str: string): string => {
     .replace(/[\u0300-\u036f]/g, "");
 };
 
-const convertToUsLang = (str: string): string => {
+const convertToLowerUsLang = (str: string): string => {
   return lowercaseAndRemoveDiacritics(`${str}`);
 };
 
@@ -17,6 +17,6 @@ const convertToMoneyString = (n: number): string => {
 };
 
 export default {
-  convertToUsLang,
+  convertToLowerUsLang,
   convertToMoneyString,
 };
