@@ -1,40 +1,49 @@
-import {IConfig, IConfigCommon, IConfigPostgres, IConfigRedis} from "../interfaces/config";
+import {
+  IAwsS3,
+  IConfig,
+  IConfigCommon,
+  IConfigPostgres,
+  IConfigRedis,
+} from "../interfaces/config";
 
-let config: IConfig
+let config: IConfig;
 
 const init = (env: NodeJS.ProcessEnv) => {
-    config = {
-        // common
-        common: {
-            port: Number(env.PORT),
-            jwtSecretKey: env.SECRET_JWT,
-        } as IConfigCommon,
+  config = {
+    // common
+    common: {
+      port: Number(env.PORT),
+      jwtSecretKey: env.SECRET_JWT,
+    } as IConfigCommon,
 
-        // config database
-        postgres: {
-            name: env.POSTGRES_DB_NAME,
-            port: Number(env.POSTGRES_PORT),
-            url: env.POSTGRES_HOST,
-            password: env.POSTGRES_USER_PASSWORD,
-            username: env.POSTGRES_USER_NAME
-        } as IConfigPostgres,
+    // config database
+    postgres: {
+      name: env.POSTGRES_DB_NAME,
+      port: Number(env.POSTGRES_PORT),
+      url: env.POSTGRES_HOST,
+      password: env.POSTGRES_USER_PASSWORD,
+      username: env.POSTGRES_USER_NAME,
+    } as IConfigPostgres,
 
-        // redis
-        redis: {
-            uri:  env.REDIS_URI,
-            port: Number(env.REDIS_PORT),
-            username: env.REDIS_PORT,
-            password: env.REDIS_PASSWORD,
-        } as IConfigRedis
-
-    }
-}
+    // redis
+    redis: {
+      uri: env.REDIS_URI,
+      port: Number(env.REDIS_PORT),
+      username: env.REDIS_PORT,
+      password: env.REDIS_PASSWORD,
+    } as IConfigRedis,
+    awsS3: {
+      accessKey: env.S3_ACCESS_KEY,
+      secretKey: env.S3_SECRET_KEY,
+    } as IAwsS3,
+  };
+};
 
 const get = (): IConfig => {
-    return config
-}
+  return config;
+};
 
 export default {
-    init,
-    get
-}
+  init,
+  get,
+};

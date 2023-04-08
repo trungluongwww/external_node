@@ -1,32 +1,33 @@
 interface IConfig {
-    postgres: IConfigPostgres
-    common: IConfigCommon
-    redis: IConfigRedis
+  postgres: IConfigPostgres;
+  common: IConfigCommon;
+  redis: IConfigRedis;
+  awsS3: IAwsS3;
 }
 
 interface IConfigCommon {
-    port: number
-    jwtSecretKey: string
+  port: number;
+  jwtSecretKey: string;
 }
 
 interface IConfigPostgres {
-    port: number
-    username: string
-    password: string
-    name: string
-    url: string
+  port: number;
+  username: string;
+  password: string;
+  name: string;
+  url: string;
 }
 
 interface IConfigRedis {
-    uri: string
-    port: number
-    username: string
-    password: string
+  uri: string;
+  port: number;
+  username: string;
+  password: string;
 }
 
-export {
-    IConfig,
-    IConfigPostgres,
-    IConfigCommon,
-    IConfigRedis
+interface IAwsS3 {
+  accessKey: string;
+  secretKey: string;
 }
+
+export { IConfig, IConfigPostgres, IConfigCommon, IConfigRedis, IAwsS3 };
