@@ -8,6 +8,7 @@ interface IConfig {
 interface IConfigCommon {
   port: number;
   jwtSecretKey: string;
+  rootDir: string;
 }
 
 interface IConfigPostgres {
@@ -28,6 +29,8 @@ interface IConfigRedis {
 interface IAwsS3 {
   accessKey: string;
   secretKey: string;
+  region: string;
+  bucket: string;
 }
 
 export { IConfig, IConfigPostgres, IConfigCommon, IConfigRedis, IAwsS3 };
