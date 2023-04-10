@@ -5,6 +5,7 @@ import {
   IConfigPostgres,
   IConfigRedis,
 } from "../interfaces/config";
+import { path } from "app-root-path";
 
 let config: IConfig;
 
@@ -14,6 +15,7 @@ const init = (env: NodeJS.ProcessEnv) => {
     common: {
       port: Number(env.PORT),
       jwtSecretKey: env.SECRET_JWT,
+      rootDir: path,
     } as IConfigCommon,
 
     // config database
@@ -35,6 +37,8 @@ const init = (env: NodeJS.ProcessEnv) => {
     awsS3: {
       accessKey: env.S3_ACCESS_KEY,
       secretKey: env.S3_SECRET_KEY,
+      region: env.S3_REGION,
+      bucket: env.S3_BUCKET,
     } as IAwsS3,
   };
 };

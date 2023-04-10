@@ -22,7 +22,7 @@ const getMessageByKey = (key: string): string => {
     return item.key === key;
   });
 
-  return msg ? msg.message : "";
+  return msg ? msg.message : key;
 };
 
 export default {
@@ -34,4 +34,5 @@ export default {
   r401,
   r404,
   r403,
+  common,
 };
