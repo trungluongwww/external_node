@@ -1,4 +1,11 @@
-import { GetObjectCommand, PutObjectCommand, PutObjectRequest, S3Client, ServiceInputTypes } from "@aws-sdk/client-s3";
+import {
+  DeleteObjectCommand,
+  GetObjectCommand,
+  PutObjectCommand,
+  PutObjectRequest,
+  S3Client,
+  ServiceInputTypes,
+} from "@aws-sdk/client-s3";
 import { IConfig } from "../interfaces/config";
 import config from "../config";
 import * as fs from "fs";
@@ -64,6 +71,22 @@ const uploadObjectPrivate = async (path: string, key: string, contentType: strin
   }
 };
 
+const removeObjectByKey = async (key: string) => {
+  const cfg = config.get();
+
+  const command = new DeleteObjectCommand({
+    Bucket: cfg.awsS3.bucket,
+    Key: key,
+  });
+
+  try {
+    await getClient().send(command);
+    console.log("[UPLOAD] done remove file ", key);
+  } catch (err) {
+    console.log("[UPLOAD] Error in s3.removeObjectByKey: key ", key, (err as Error).message);
+  }
+};
+
 const getPublicURL = (region: string, bucket: string, key: string): string => {
   return `https://${bucket}.s3.${region}.amazonaws.com/${key}`;
 };
@@ -92,4 +115,5 @@ export default {
   getPresignedURLByKey,
   uploadObjectPublic,
   uploadObjectPrivate,
+  removeObjectByKey,
 };
