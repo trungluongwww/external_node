@@ -5,6 +5,10 @@ const commonUnauthorizedKey = "common_unauthorized";
 const commonBadRequestKey = "common_bad_request";
 const commonNoPermissionKey = "common_no_permission";
 const commonNotFoundKey = "common_not_found";
+const commonInvalidPagination = "common_invalid_pagination";
+const commonInvalidKeyword = "common_invalid_keyword";
+const commonInvalidOrderBy = "common_invalid_order_by";
+const commonInvalidID = "common_invalid_id";
 
 let list: Array<IResponseCode> = [
   {
@@ -27,6 +31,22 @@ let list: Array<IResponseCode> = [
     message: "không tìm thấy",
     key: commonNotFoundKey,
   },
+  {
+    message: "giá trị phân trang không hợp lệ",
+    key: commonInvalidPagination,
+  },
+  {
+    message: "giá trị tìm kiếm không hợp lệ",
+    key: commonInvalidKeyword,
+  },
+  {
+    message: "giá trị sắp xếp không hợp lệ",
+    key: commonInvalidOrderBy,
+  },
+  {
+    message: "id không hợp lệ",
+    key: commonInvalidID,
+  },
 ];
 
 export default {
@@ -36,4 +56,8 @@ export default {
   commonUnauthorizedKey,
   commonNoPermissionKey,
   commonNotFoundKey,
+  commonInvalidPagination,
+  commonInvalidKeyword,
+  commonInvalidOrderBy,
+  commonInvalidID,
 };
