@@ -22,9 +22,7 @@ const getStartEndOfMonth = (date: Date): [Date, Date] => {
   date.setUTCHours(0, 0, 0, 0);
   let startDay = new Date(date);
 
-  date.setDate(
-    date.getDate() + daysInMonth(date.getMonth(), date.getFullYear()) - 1
-  );
+  date.setDate(date.getDate() + daysInMonth(date.getMonth(), date.getFullYear()) - 1);
 
   date.setUTCHours(23, 59, 59, 0);
   let endDate = new Date(date);
@@ -49,9 +47,16 @@ const getTimeStartEndOfDay = (date: Date): [Date, Date] => {
   return [start, end];
 };
 
+const newDateTimeUTC7 = (date: Date): Date => {
+  let newDate = new Date(date);
+  newDate.setHours(date.getHours() + 7);
+  return newDate;
+};
+
 export default {
   getStartEndOfMonth,
   getStartEndOfWeek,
   getStartEndLastDays,
   getTimeStartEndOfDay,
+  newDateTimeUTC7,
 };
