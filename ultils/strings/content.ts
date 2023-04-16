@@ -6,6 +6,9 @@ const lowercaseAndRemoveDiacritics = (str: string): string => {
 };
 
 const convertToLowerUsLang = (str: string): string => {
+  if (!str) {
+    return "";
+  }
   return lowercaseAndRemoveDiacritics(`${str}`);
 };
 
