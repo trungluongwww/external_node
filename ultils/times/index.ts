@@ -1,4 +1,6 @@
 // return [from,to]
+import { unwatchFile } from "fs";
+
 const getStartEndOfWeek = (date: Date): [Date, Date] => {
   date.setDate(date.getDate() - date.getDay());
   date.setUTCHours(0, 0, 0, 0);
@@ -47,7 +49,13 @@ const getTimeStartEndOfDay = (date: Date): [Date, Date] => {
   return [start, end];
 };
 
-const newDateTimeUTC7 = (date: Date): Date => {
+const newDateTimeUTC7 = (date: Date): Date | undefined => {
+  if (!date) {
+    return undefined;
+  }
+
+  date = new Date(date);
+
   let newDate = new Date(date);
   newDate.setHours(date.getHours() + 7);
   return newDate;
