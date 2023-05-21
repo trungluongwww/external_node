@@ -38,6 +38,7 @@ const resizeImage = async (
     return [Math.floor(dimension.width * ratio), Math.floor(dimension.height * ratio), null];
   } catch (error) {
     console.log(error);
+    console.log("[UPLOAD] Error in resize: key ", (error as Error).message);
     return [0, 0, error as Error];
   }
 };
