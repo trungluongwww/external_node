@@ -9,6 +9,8 @@ const commonInvalidPagination = "common_invalid_pagination";
 const commonInvalidKeyword = "common_invalid_keyword";
 const commonInvalidOrderBy = "common_invalid_order_by";
 const commonInvalidID = "common_invalid_id";
+const commonInvalidFile = "common_invalid_file";
+const commonInvalidExtensionFile = "common_invalid_extension_file";
 
 let list: Array<IResponseCode> = [
   {
@@ -47,6 +49,14 @@ let list: Array<IResponseCode> = [
     message: "id không hợp lệ",
     key: commonInvalidID,
   },
+  {
+    message: "file khong hop le",
+    key: commonInvalidFile,
+  },
+  {
+    message: "dinh dang file khong hop le",
+    key: commonInvalidExtensionFile,
+  },
 ];
 
 export default {
@@ -60,4 +70,6 @@ export default {
   commonInvalidKeyword,
   commonInvalidOrderBy,
   commonInvalidID,
+  commonInvalidFile,
+  commonInvalidExtensionFile,
 };

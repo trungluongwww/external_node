@@ -19,18 +19,25 @@ const createPageToken = (page: number | null, time: Date | null): string => {
 };
 
 const getDataFromToken = (token: string): IPageTokenResponse => {
-  if (!token) {
+  try {
+    if (!token) {
+      return {
+        time: new Date(),
+        page: 0,
+      } as IPageTokenResponse;
+    }
+    return JSON.parse(atob(token)) as IPageTokenResponse;
+  } catch (e) {
     return {
       time: new Date(),
       page: 0,
     } as IPageTokenResponse;
   }
-  return JSON.parse(atob(token)) as IPageTokenResponse;
 };
 
 const getLimitOffset = (limit: number, page: number): [number, number] => {
-  if (!limit || limit > 30 || limit <= 0) {
-    limit = 30;
+  if (!limit || limit > 20 || limit <= 0) {
+    limit = 20;
   }
 
   if (!page || page < 0) {
