@@ -36,8 +36,8 @@ const getDataFromToken = (token: string): IPageTokenResponse => {
 };
 
 const getLimitOffset = (limit: number, page: number): [number, number] => {
-  if (!limit || limit > 20 || limit <= 0) {
-    limit = 20;
+  if (!limit || limit > 15 || limit <= 0) {
+    limit = 15;
   }
 
   if (!page || page < 0) {

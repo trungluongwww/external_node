@@ -1,5 +1,7 @@
 ## Project repository
 
+This repository provides a set of tools and configurations to help you set up your Node.js project quickly.
+
 ### Getting started
 
 1. Open terminal and navigate to the root directory of your project
