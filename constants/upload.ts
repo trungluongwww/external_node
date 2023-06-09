@@ -15,7 +15,7 @@ export default {
       height: 300,
     },
     photo: {
-      width: 1280,
+      width: 720,
       height: 720,
     },
     video: {
