@@ -1,10 +1,4 @@
-import {
-  IAwsS3,
-  IConfig,
-  IConfigCommon,
-  IConfigPostgres,
-  IConfigRedis,
-} from "../interfaces/config";
+import { IAwsS3, IConfig, IConfigCommon, IConfigPostgres, IConfigRedis } from "../interfaces/config";
 import { path } from "app-root-path";
 
 let config: IConfig;
@@ -15,6 +9,7 @@ const init = (env: NodeJS.ProcessEnv) => {
     common: {
       port: Number(env.PORT),
       jwtSecretKey: env.SECRET_JWT,
+      jwtSecretAdmin: env.SECRET_JWT_ADMIN,
       rootDir: path,
     } as IConfigCommon,
 

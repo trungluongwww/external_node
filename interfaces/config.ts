@@ -9,6 +9,7 @@ interface IConfigCommon {
   port: number;
   jwtSecretKey: string;
   rootDir: string;
+  jwtSecretAdmin: string;
 }
 
 interface IConfigPostgres {
