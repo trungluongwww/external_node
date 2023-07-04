@@ -3,6 +3,13 @@ interface IConfig {
   common: IConfigCommon;
   redis: IConfigRedis;
   awsS3: IAwsS3;
+  awsSES: IAwsSES;
+}
+
+interface IAwsSES {
+  username: string;
+  password: string;
+  region: string;
 }
 
 interface IConfigCommon {
@@ -34,4 +41,4 @@ interface IAwsS3 {
   bucket: string;
 }
 
-export { IConfig, IConfigPostgres, IConfigCommon, IConfigRedis, IAwsS3 };
+export { IConfig, IConfigPostgres, IConfigCommon, IConfigRedis, IAwsS3, IAwsSES };
