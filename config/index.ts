@@ -1,4 +1,4 @@
-import { IAwsS3, IConfig, IConfigCommon, IConfigPostgres, IConfigRedis } from "../interfaces/config";
+import { IAwsS3, IAwsSES, IConfig, IConfigCommon, IConfigPostgres, IConfigRedis } from "../interfaces/config";
 import { path } from "app-root-path";
 
 let config: IConfig;
@@ -26,15 +26,22 @@ const init = (env: NodeJS.ProcessEnv) => {
     redis: {
       uri: env.REDIS_URI,
       port: Number(env.REDIS_PORT),
-      username: env.REDIS_PORT,
+      username: env.REDIS_USERNAME,
       password: env.REDIS_PASSWORD,
     } as IConfigRedis,
+
     awsS3: {
       accessKey: env.S3_ACCESS_KEY,
       secretKey: env.S3_SECRET_KEY,
       region: env.S3_REGION,
       bucket: env.S3_BUCKET,
     } as IAwsS3,
+
+    awsSES: {
+      password: env.SES_PASSWORD,
+      username: env.SES_USERNAME,
+      region: env.SES_REGION,
+    } as IAwsSES,
   };
 };
 
