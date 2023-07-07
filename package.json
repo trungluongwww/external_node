@@ -1,0 +1,19 @@
+{
+  "name": "sub-modules",
+  "version": "1.0.0",
+  "description": "sub- module support nodejs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "bson": "^5.2.0",
+    "redis": "^4.6.4"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.0"
+  }
+}
