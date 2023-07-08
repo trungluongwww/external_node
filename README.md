@@ -14,4 +14,3 @@ This repository provides a set of tools and configurations to help you set up yo
    ``$cd external_node``
 2. install the required dependencies by running the following command:
    ``$npm install``
-

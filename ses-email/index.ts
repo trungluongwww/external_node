@@ -22,7 +22,7 @@ const init = async (cfg: IConfig) => {
     console.log("⚡ [SES] Init success");
   } catch (e: unknown) {
     console.log("[SES] error when init ses:", (e as Error).message);
-    process.exit();
+    process.exit(1);
   }
 };
 

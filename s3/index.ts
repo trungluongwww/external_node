@@ -14,14 +14,20 @@ import { getSignedUrl, S3RequestPresigner } from "@aws-sdk/s3-request-presigner"
 let client: S3Client;
 
 const init = (cfg: IConfig) => {
-  client = new S3Client({
-    region: cfg.awsS3.region,
-    credentials: {
-      accessKeyId: cfg.awsS3.accessKey,
-      secretAccessKey: cfg.awsS3.secretKey,
-    },
-  });
-  console.log("⚡️[s3]: init success");
+  try {
+    client = new S3Client({
+      region: cfg.awsS3.region,
+      credentials: {
+        accessKeyId: cfg.awsS3.accessKey,
+        secretAccessKey: cfg.awsS3.secretKey,
+      },
+    });
+    console.log("⚡️[s3]: init success");
+  } catch (e: unknown) {
+    console.log("⚡️[s3]: init error", (e as Error).message);
+    process.exit(1)
+  }
+
 };
 
 const uploadObjectPublic = async (path: string, key: string, contentType: string): Promise<[string, Error | null]> => {
